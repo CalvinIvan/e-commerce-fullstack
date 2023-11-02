@@ -10,17 +10,17 @@ module.exports = {
     themes: [
       {
         lightTheme: {
-          primary: "#f4aa3a",
-          secondary: "#f4f4a1",
-          accent: "#1be885",
-          neutral: "#272136",
+          primary: "#E4F5EB",
+          secondary: "#007ebd",
+          accent: "#f8860d",
+          neutral: "#1f2937",
           "base-100": "#ffffff",
-          info: "#778ad4",
-          success: "#23b893",
-          warning: "#f79926",
-          error: "#ea535a",
+          info: "#3abff8",
+          success: "#36d399",
+          warning: "#fbbd23",
+          error: "#f87272",
           body: {
-            "background-color": "#e3e6e6",
+            "background-color": "#E5EFF6",
           },
         },
       },
