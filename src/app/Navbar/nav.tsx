@@ -3,6 +3,8 @@ import Link from "next/link";
 import Logo from "@/app/assets/logo.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { redirect } from "next/navigation";
+import { getCart } from "@/lib/db/cart";
+import ShoppingCartButton from "./ShoppingCartButton";
 
 async function searchProducts(formData: FormData) {
   "use server";
@@ -14,7 +16,9 @@ async function searchProducts(formData: FormData) {
   }
 }
 
-export default function Navbar() {
+export default async function Navbar() {
+  const cart = await getCart();
+
   return (
     <div className="bg-sky-200">
       <div className="navbar m-auto max-w-7xl flex-col sm:flex-row">
@@ -25,9 +29,8 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="flex-none gap-2">
-          <div className="rounded-full border border-sky-400 bg-transparent p-3 text-2xl transition hover:scale-105 hover:cursor-pointer">
-            <AiOutlineShoppingCart />
-          </div>
+          <ShoppingCartButton cart={cart} />
+
           <form action={searchProducts}>
             <div className="form-control">
               <input
