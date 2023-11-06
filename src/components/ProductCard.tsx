@@ -15,7 +15,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <div className="my-5 w-[25rem]">
       <Link
         href={"/products/" + product.id}
-        className="card w-full bg-base-100 transition-shadow hover:shadow-xl"
+        className="card w-full bg-base-100 transition hover:scale-[1.02] hover:shadow-2xl"
       >
         <figure>
           <Image
