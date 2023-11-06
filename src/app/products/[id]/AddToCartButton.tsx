@@ -1,5 +1,5 @@
 "use client";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 interface AddToCartButtonProps {
@@ -20,10 +20,9 @@ export default function AddToCartButton({
         className="btn btn-secondary"
         onClick={() => {
           setSuccess(false);
-          startTransition(() => {
-            incrementProductQuantity(productId).then(() => {
-              setSuccess(true);
-            });
+          startTransition(async () => {
+            await incrementProductQuantity(productId);
+            setSuccess(true);
           });
         }}
       >
@@ -32,9 +31,10 @@ export default function AddToCartButton({
           <AiOutlineShoppingCart />
         </div>
       </button>
+      {isPending && <span className="loading loading-spinner loading-lg" />}
+      {!isPending && success && (
+        <span className="text-success">Added to cart!</span>
+      )}
     </div>
   );
-}
-function useState(arg0: boolean): [any, any] {
-  throw new Error("Function not implemented.");
 }
