@@ -24,7 +24,7 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
           <span className="text-3xl">
             <AiOutlineShoppingCart />{" "}
           </span>
-          <span className="text-md badge indicator-item badge-lg border-none bg-transparent pb-2 pl-4 font-bold ">
+          <span className="text-md badge indicator-item badge-lg border-none bg-transparent pb-2 pl-4 font-bold text-gray-600">
             {cart?.size || 0}
           </span>
         </div>

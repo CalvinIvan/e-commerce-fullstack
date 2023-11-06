@@ -4,14 +4,26 @@ import { CartItemWithProducts } from "@/lib/db/cart";
 import { formatPrice } from "@/lib/format";
 import Image from "next/image";
 import Link from "next/link";
+import { useTransition } from "react";
 
 interface CartEntryProps {
   cartItem: CartItemWithProducts;
+  setProductQuantity: (productId: string, quantity: number) => Promise<void>;
 }
 
 export default function CartEntry({
   cartItem: { product, quantity },
+  setProductQuantity,
 }: CartEntryProps) {
+  const [isPending, startTransition] = useTransition();
+  const quantityOptions: JSX.Element[] = [];
+  for (let i = 1; i <= 10; i++) {
+    quantityOptions.push(
+      <option value={i} key={i}>
+        {i}
+      </option>,
+    );
+  }
   return (
     <div className="card mt-2 bg-slate-50/40 shadow-md transition hover:scale-[1.02] hover:shadow-2xl">
       <div className="card-body flex flex-row items-center">
@@ -27,12 +39,29 @@ export default function CartEntry({
 
         <div className="flex flex-col">
           <Link href={"/products/" + product.id}>
-            <span className="text-xl font-bold">{product.name}</span>
+            <span className="text-xl font-bold transition hover:underline">
+              {product.name}
+            </span>
           </Link>
           <span className="text-xl font-bold">
-            {formatPrice(product.price)}
+            {formatPrice(product.price * quantity)}
           </span>
-          <span className="text-xl font-bold">Quantity: {quantity}</span>
+          <span>
+            <span className="text-lg font-bold">Quantity: </span>
+            <select
+              className="select ml-2 max-w-[80px] text-lg"
+              defaultValue={quantity}
+              onChange={(e) => {
+                const newQuantity = parseInt(e.currentTarget.value);
+                startTransition(async () => {
+                  await setProductQuantity(product.id, newQuantity);
+                });
+              }}
+            >
+              {quantityOptions}
+            </select>
+          </span>
+          {isPending && <span className="loading loading-spinner loading-md" />}
         </div>
       </div>
     </div>
