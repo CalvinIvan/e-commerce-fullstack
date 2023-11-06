@@ -14,8 +14,8 @@ export default function CartEntry({
 }: CartEntryProps) {
   return (
     <div className="card mt-2 bg-slate-50/40 shadow-md transition hover:scale-[1.02] hover:shadow-2xl">
-      <Link href={"/products/" + product.id}>
-        <div className="card-body flex flex-row items-center">
+      <div className="card-body flex flex-row items-center">
+        <Link href={"/products/" + product.id}>
           <Image
             src={product.imageUrl}
             alt={product.name}
@@ -23,16 +23,18 @@ export default function CartEntry({
             height={150}
             className="rounded-xl"
           />
-          <div className="flex flex-col">
-            <span className="text-xl font-bold">{product.name}</span>
+        </Link>
 
-            <span className="text-xl font-bold">
-              {formatPrice(product.price)}
-            </span>
-            <span className="text-xl font-bold">Quantity: {quantity}</span>
-          </div>
+        <div className="flex flex-col">
+          <Link href={"/products/" + product.id}>
+            <span className="text-xl font-bold">{product.name}</span>
+          </Link>
+          <span className="text-xl font-bold">
+            {formatPrice(product.price)}
+          </span>
+          <span className="text-xl font-bold">Quantity: {quantity}</span>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }
