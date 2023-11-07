@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-gradient-to-r from-blue-500 to-cyan-300`}
+        className={`${inter.className} bg-gradient-to-r from-blue-400 to-cyan-200`}
       >
         <Navbar />
         <main className="m-auto min-h-screen min-w-[300px] max-w-7xl p-4">

@@ -9,7 +9,7 @@ export default async function Home() {
   });
   return (
     <div>
-      <div className="hero rounded-xl bg-base-100/[0.35] transition duration-500 hover:bg-base-100/[0.5]">
+      <div className="hero rounded-xl bg-base-100/[0.2] transition duration-500 hover:bg-base-100/[0.35]">
         <div className="hero-content flex-col lg:flex-row">
           <Link
             href={"/products/" + products[0].id}
@@ -40,7 +40,7 @@ export default async function Home() {
               href={"/products/" + products[0].id}
               className="btn border-none bg-gradient-to-r from-indigo-500 to-blue-500 text-white transition hover:scale-105"
             >
-              Check it out!
+              View Item!
             </Link>
           </div>
         </div>

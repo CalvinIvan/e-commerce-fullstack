@@ -26,7 +26,7 @@ export default function CartEntry({
     );
   }
   return (
-    <div className="card mt-2 bg-slate-50/40 shadow-md transition hover:scale-[1.002] hover:shadow-2xl">
+    <div className="card mt-2 bg-slate-50/40 shadow-md transition hover:shadow-2xl">
       <div className="card-body flex flex-row items-center">
         <Link href={"/products/" + product.id}>
           <Image
@@ -40,13 +40,13 @@ export default function CartEntry({
 
         <div className="flex flex-col">
           <Link href={"/products/" + product.id}>
-            <span className="text-xl font-bold transition hover:underline">
+            <span className="text-xl font-bold text-white transition hover:underline">
               {product.name}
             </span>
           </Link>
 
           <span>
-            <span className="text-lg font-bold">Quantity: </span>
+            <span className="text-lg font-bold text-white">Quantity: </span>
             <select
               className="select max-w-[80px] scale-[0.85] rounded-full text-lg"
               defaultValue={quantity}
@@ -60,14 +60,14 @@ export default function CartEntry({
               {quantityOptions}
             </select>
           </span>
-          <span className="text-xl font-bold">
+          <span className="text-xl font-bold text-white">
             {formatPrice(product.price * quantity)}
             {isPending && (
               <span className="loading loading-spinner loading-md ml-3 mt-2" />
             )}
           </span>
           <span
-            className="mt-2 text-2xl hover:cursor-pointer"
+            className="mt-2 text-2xl text-gray-700/40 transition duration-300 hover:cursor-pointer hover:text-slate-50/100"
             onClick={(e) => {
               const newQuantity = 0;
               startTransition(async () => {

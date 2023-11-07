@@ -15,16 +15,16 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
     if (dropdown) dropdown.blur();
   }
   return (
-    <div className="dropdown dropdown-end rounded-full border-2 border-sky-300 text-2xl transition hover:cursor-pointer">
+    <div className="dropdown dropdown-end mr-2 rounded-full text-2xl transition hover:cursor-pointer">
       <label
         tabIndex={0}
-        className="btn btn-circle border-none bg-transparent hover:scale-105 hover:bg-sky-300"
+        className="btn btn-circle border-none bg-transparent hover:scale-105 hover:bg-white/20"
       >
         <div className="indicator">
-          <span className="text-3xl">
+          <span className="text-3xl text-slate-50/75">
             <AiOutlineShoppingCart />{" "}
           </span>
-          <span className="text-md badge indicator-item badge-lg border-none bg-transparent pb-2 pl-4 font-bold text-gray-600">
+          <span className="text-md badge indicator-item badge-lg border-none bg-transparent font-bold text-black/50">
             {cart?.size || 0}
           </span>
         </div>
@@ -43,7 +43,7 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
               className="btn btn-primary btn-block"
               onClick={closeDropdown}
             >
-              View Cart
+              <span className="text-white">View Cart</span>
             </Link>
           </div>
         </div>

@@ -10,7 +10,7 @@ export default async function CartPage() {
 
   return (
     <div>
-      <h1 className="mb-6 text-3xl font-semibold text-gray-700">
+      <h1 className="mb-6 text-3xl font-semibold text-white/80">
         Items in Cart:
       </h1>
       <ul>
@@ -22,7 +22,9 @@ export default async function CartPage() {
           />
         ))}
       </ul>
-      {!cart?.items.length && <p>Cart is empty!</p>}
+      {!cart?.items.length && (
+        <p className="text-4xl font-bold text-white/75">Cart is empty!</p>
+      )}
     </div>
   );
 }

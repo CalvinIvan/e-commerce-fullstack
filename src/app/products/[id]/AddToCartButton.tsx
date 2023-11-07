@@ -17,7 +17,7 @@ export default function AddToCartButton({
   return (
     <div className="mt-4 flex items-center gap-2">
       <button
-        className="btn bg-gradient-to-r from-indigo-500 to-blue-500 text-white"
+        className="btn border-none bg-gradient-to-r from-indigo-500 to-blue-500 text-white transition hover:scale-105"
         onClick={() => {
           setSuccess(false);
           startTransition(async () => {
