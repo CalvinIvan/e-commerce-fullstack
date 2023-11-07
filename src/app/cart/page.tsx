@@ -1,6 +1,7 @@
 import { getCart } from "@/lib/db/cart";
 import CartEntry from "./CartEntry";
 import { setProductQuantity } from "./actions";
+import Link from "next/link";
 
 export const metadata = {
   title: "Your Cart",
@@ -23,7 +24,14 @@ export default async function CartPage() {
         ))}
       </ul>
       {!cart?.items.length && (
-        <p className="text-4xl font-bold text-white/75">Cart is empty!</p>
+        <>
+          <p className="text-4xl font-bold text-white/75">Cart is empty!</p>
+          <Link href="/">
+            <div className="btn mt-2 w-[10rem] border-none bg-gradient-to-r from-indigo-500 to-blue-500 text-white transition hover:scale-105">
+              Back to home
+            </div>
+          </Link>
+        </>
       )}
     </div>
   );
