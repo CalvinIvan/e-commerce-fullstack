@@ -34,7 +34,7 @@ export default async function Navbar() {
             <span className="text-white/75">Apex Athletics</span>
           </Link>
         </div>
-        <div className="flex-none gap-2">
+        <div className="flex-col gap-2 sm:flex-row">
           <ShoppingCartButton cart={cart} />
 
           <form action={searchProducts}>

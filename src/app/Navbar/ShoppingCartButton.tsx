@@ -15,7 +15,7 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonProps) {
     if (dropdown) dropdown.blur();
   }
   return (
-    <div className="dropdown dropdown-end mr-2 rounded-full text-2xl transition hover:cursor-pointer">
+    <div className="dropdown dropdown-bottom mr-2 rounded-full text-2xl transition hover:cursor-pointer">
       <label
         tabIndex={0}
         className="btn btn-circle border-none bg-transparent hover:scale-105 hover:bg-white/20"

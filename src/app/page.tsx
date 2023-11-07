@@ -25,7 +25,7 @@ export default async function Home() {
             />
           </Link>
           <div>
-            <h1 className="mb-5 text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-white sm:mb-5">
               Featured Item!
             </h1>
             <Link href={"/products/" + products[0].id}>

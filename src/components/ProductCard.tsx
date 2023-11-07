@@ -12,7 +12,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     Date.now() - new Date(product.createdAt).getTime() <
     1000 * 60 * 60 * 24 * 7;
   return (
-    <div className="my-5 w-[25rem] opacity-[0.85] transition hover:opacity-100">
+    <div className="my-5 w-auto opacity-[0.85] transition hover:opacity-100 sm:w-[25rem]">
       <Link
         href={"/products/" + product.id}
         className="card w-full bg-base-100 transition hover:scale-[1.02] hover:shadow-2xl"
