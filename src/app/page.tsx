@@ -1,4 +1,5 @@
 import ProductCard from "@/components/ProductCard";
+import Pagination from "@/components/pagination";
 import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
 import Link from "next/link";
