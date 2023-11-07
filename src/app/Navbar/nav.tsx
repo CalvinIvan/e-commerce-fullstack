@@ -5,6 +5,9 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { redirect } from "next/navigation";
 import { getCart } from "@/lib/db/cart";
 import ShoppingCartButton from "./ShoppingCartButton";
+import UserMenuButton from "./UserMenuButton";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 async function searchProducts(formData: FormData) {
   "use server";
@@ -17,6 +20,7 @@ async function searchProducts(formData: FormData) {
 }
 
 export default async function Navbar() {
+  const session = await getServerSession(authOptions);
   const cart = await getCart();
 
   return (
@@ -35,6 +39,7 @@ export default async function Navbar() {
           </Link>
         </div>
         <div className="flex-col gap-2 sm:flex-row">
+          <UserMenuButton session={session} />
           <ShoppingCartButton cart={cart} />
 
           <form action={searchProducts}>
