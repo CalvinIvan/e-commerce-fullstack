@@ -31,7 +31,7 @@ export default async function Navbar() {
               height={40}
               className="scale-110 rounded-full bg-white p-[0.25rem]"
             />
-            <span className="text-white/75">Apex Athletics</span>
+            <span className="text-white/90">Apex Athletics</span>
           </Link>
         </div>
         <div className="flex-col gap-2 sm:flex-row">
