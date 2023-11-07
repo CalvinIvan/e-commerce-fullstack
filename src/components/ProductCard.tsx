@@ -12,7 +12,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     Date.now() - new Date(product.createdAt).getTime() <
     1000 * 60 * 60 * 24 * 7;
   return (
-    <div className="my-5 w-[25rem]">
+    <div className="my-5 w-[25rem] opacity-[0.85] transition hover:opacity-100">
       <Link
         href={"/products/" + product.id}
         className="card w-full bg-base-100 transition hover:scale-[1.02] hover:shadow-2xl"
@@ -29,7 +29,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="card-body h-[20rem]">
           <h2 className="card-title">
             {product.name}
-            {isNew && <div className="badge badge-primary">New!</div>}
+            {isNew && <div className="badge badge-secondary">New!</div>}
           </h2>
           <p>{product.description}</p>
 

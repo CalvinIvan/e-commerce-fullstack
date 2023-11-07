@@ -22,6 +22,7 @@ export default async function CartPage() {
           />
         ))}
       </ul>
+      {!cart?.items.length && <p>Cart is empty!</p>}
     </div>
   );
 }

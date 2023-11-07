@@ -20,12 +20,14 @@ export default async function Navbar() {
   const cart = await getCart();
 
   return (
-    <div className="bg-sky-200">
+    <div className="bg-transparent">
       <div className="navbar m-auto max-w-7xl flex-col sm:flex-row">
         <div className="flex-1">
           <Link href="/" className="btn btn-ghost text-lg normal-case">
             <Image src={Logo} alt="Logo" width={40} height={40} />
-            Kickz!
+            <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+              Apex Athletics
+            </span>
           </Link>
         </div>
         <div className="flex-none gap-2">

@@ -53,7 +53,7 @@ export default async function ProductPage({
 
           <PriceTag
             price={product.price}
-            className="badge badge-secondary my-2"
+            className="badge my-2 border-none bg-gradient-to-r from-indigo-500 to-blue-500"
           />
           <p>{product.description}</p>
           <AddToCartButton

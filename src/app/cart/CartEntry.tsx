@@ -5,6 +5,7 @@ import { formatPrice } from "@/lib/format";
 import Image from "next/image";
 import Link from "next/link";
 import { useTransition } from "react";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 interface CartEntryProps {
   cartItem: CartItemWithProducts;
@@ -17,7 +18,7 @@ export default function CartEntry({
 }: CartEntryProps) {
   const [isPending, startTransition] = useTransition();
   const quantityOptions: JSX.Element[] = [];
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 0; i <= 10; i++) {
     quantityOptions.push(
       <option value={i} key={i}>
         {i}
@@ -25,7 +26,7 @@ export default function CartEntry({
     );
   }
   return (
-    <div className="card mt-2 bg-slate-50/40 shadow-md transition hover:scale-[1.02] hover:shadow-2xl">
+    <div className="card mt-2 bg-slate-50/40 shadow-md transition hover:scale-[1.002] hover:shadow-2xl">
       <div className="card-body flex flex-row items-center">
         <Link href={"/products/" + product.id}>
           <Image
@@ -43,13 +44,11 @@ export default function CartEntry({
               {product.name}
             </span>
           </Link>
-          <span className="text-xl font-bold">
-            {formatPrice(product.price * quantity)}
-          </span>
+
           <span>
             <span className="text-lg font-bold">Quantity: </span>
             <select
-              className="select ml-2 max-w-[80px] text-lg"
+              className="select max-w-[80px] scale-[0.85] rounded-full text-lg"
               defaultValue={quantity}
               onChange={(e) => {
                 const newQuantity = parseInt(e.currentTarget.value);
@@ -61,7 +60,23 @@ export default function CartEntry({
               {quantityOptions}
             </select>
           </span>
-          {isPending && <span className="loading loading-spinner loading-md" />}
+          <span className="text-xl font-bold">
+            {formatPrice(product.price * quantity)}
+            {isPending && (
+              <span className="loading loading-spinner loading-md ml-3 mt-2" />
+            )}
+          </span>
+          <span
+            className="mt-2 text-2xl hover:cursor-pointer"
+            onClick={(e) => {
+              const newQuantity = 0;
+              startTransition(async () => {
+                await setProductQuantity(product.id, newQuantity);
+              });
+            }}
+          >
+            <FaRegTrashAlt />
+          </span>
         </div>
       </div>
     </div>

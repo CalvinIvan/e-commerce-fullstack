@@ -10,18 +10,23 @@ module.exports = {
     themes: [
       {
         lightTheme: {
-          primary: "#E4F5EB",
-          secondary: "#007ebd",
-          accent: "#f8860d",
-          neutral: "#1f2937",
-          "base-100": "#ffffff",
-          info: "#3abff8",
-          success: "#36d399",
-          warning: "#fbbd23",
-          error: "#f87272",
-          body: {
-            "background-color": "#E5EFF6",
-          },
+          primary: "#26C6DA",
+
+          secondary: "#3F51B5",
+
+          accent: "#db6b69",
+
+          neutral: "#242b38",
+
+          "base-100": "#eff0f6",
+
+          info: "#a2d7e2",
+
+          success: "#1fa398",
+
+          warning: "#f1b150",
+
+          error: "#f65a5f",
         },
       },
     ],
