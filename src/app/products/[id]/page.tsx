@@ -49,7 +49,7 @@ export default async function ProductPage({
           priority
           className="rounded-lg shadow-xl"
         />
-        <div className="flex flex-col p-4">
+        <div className="mx-2 flex flex-col rounded-xl bg-white/20 p-4">
           <h1 className="my-5 text-5xl font-bold text-white/90">
             {" "}
             {product.name}
@@ -59,7 +59,9 @@ export default async function ProductPage({
             price={product.price}
             className="badge my-2 border-none bg-gradient-to-r from-indigo-500 to-blue-500"
           />
-          <p className="font-medium text-white/90">{product.description}</p>
+          <p className="w-[25vw] font-medium text-white/90">
+            {product.description}
+          </p>
           <AddToCartButton
             productId={product.id}
             incrementProductQuantity={incrementProductQuantity}
